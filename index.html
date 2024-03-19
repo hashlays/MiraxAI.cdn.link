@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MiraxAI Product</title>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/DevaPandiyan/MiraxAI@main/Mirax.ai.%4001.prod.min.js"></script>
+  
+</head>
+<body>
+
+<button class="MiraxAIBtn" data-product-id="1978febe-cff1-4312-9b6a-8cbd37e8aa25"  data-type-id="1" >Jewellery </button>
+<button class="MiraxAIBtn" data-product-id="171dc362-9321-4d59-a760-70b366ba7a97"  data-type-id="2">Cosmatics Lips Product</button>
+<button class="MiraxAIBtn" data-product-id="9441b2c5-b2ec-40eb-ac55-5f8614401c36"  data-type-id="3">handz </button>
+
+<script>
+// Function to handle button click
+function handleButtonClick() {
+  const clickedButton = this;
+  event.preventDefault();
+  
+    var product_id= event.target.getAttribute('data-product-id');
+    var product_component= event.target.getAttribute('data-component');
+    var product_TypeID= event.target.getAttribute('data-type-id');
+
+
+  const TypeId = product_TypeID, ProductId = product_id, appKey = 'fa80ff07f89da155', appId = '1'
+  
+  sendDataToMiraxAIProduct(appId,appKey,TypeId,ProductId,0.0,0.0, (error, message) => {
+                    if (error) {
+                      // event.preventDefault();
+                        console.log("Error occurred:", error);
+
+                    } else {
+                        console.log("Success:", message);
+                    }
+                })
+}
+// function Product(event) {
+
+//   event.preventDefault();
+
+//   // target attributes data-product-id
+//   var product_id= event.target.getAttribute('data-product-id');
+//     var product_component= event.target.getAttribute('data-component');
+//     var product_TypeID= event.target.getAttribute('data-type-id');
+
+//   const TypeId = product_TypeID, ProductId = product_id, appKey = 'fa80ff07f89da155', appId = '1'
+//   console.log("haddlebutton")
+
+//   sendDataToMiraxAIProduct(appId,appKey,component,TypeId,ProductId,0.0,0.0, (error, message) => {
+//                     if (error) {
+//                         console.log("Error occurred:", error);
+
+//                     } else {
+//                         console.log("Success:", message);
+//                     }
+//                 })
+
+// }
+
+
+
+  document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('.MiraxAIBtn');
+            buttons.forEach(function(button) {
+                button.addEventListener('click', handleButtonClick);
+            });
+        });
+</script>
+
+</body>
+</html>
