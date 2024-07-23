@@ -5,18 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MiraxAI Product</title>
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/DevaPandiyan/MiraxAI@main/Mirax.ai.%4001.prod.min.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/gh/DevaPandiyan/MiraxAI@main/Mirax.ai.%4001.prod.min.js"></script> -->
+  <script src="Mirax1.js"></script>
   
 </head>
 <body>
 
-<button class="MiraxAIBtn" data-product-id="1978febe-cff1-4312-9b6a-8cbd37e8aa25"  data-type-id="1" >Jewellery </button>
+<button class="MiraxAIBtn" data-product-id=""  data-type-id="1" >Jewellery </button>
 <button class="MiraxAIBtn" data-product-id="171dc362-9321-4d59-a760-70b366ba7a97"  data-type-id="2">Cosmatics Lips Product</button>
 <button class="MiraxAIBtn" data-product-id="9441b2c5-b2ec-40eb-ac55-5f8614401c36"  data-type-id="3">handz </button>
+<button class="MiraxAIBtn" data-product-id=""  data-type-id="4">faceais</button>
 
 <script>
 // Function to handle button click
 function handleButtonClick() {
+  const customerDetails = {
+    name: "John",
+    customerId: "123456",
+    email: "jhon@gmail.com",
+    firstName: "John",
+    lastName: "pan",
+    address:'23 Main St',
+    phonenumber:"1234567891",
+    city: "Anytown",
+    state: "California",
+    postalCode: "123423",
+    country: "USA"
+  };
   const clickedButton = this;
   event.preventDefault();
   
@@ -27,13 +42,14 @@ function handleButtonClick() {
 
   const TypeId = product_TypeID, ProductId = product_id, appKey = 'fa80ff07f89da155', appId = '1'
   
-  sendDataToMiraxAIProduct(appId,appKey,TypeId,ProductId,0.0,0.0, (error, message) => {
+  sendDataToMiraxAIProduct(appId,appKey,TypeId,ProductId,0.0,0.0,customerDetails, (error, message) => {
                     if (error) {
                       // event.preventDefault();
                         console.log("Error occurred:", error);
 
                     } else {
                         console.log("Success:", message);
+                        // hideLoadingIndicator()
                     }
                 })
 }
