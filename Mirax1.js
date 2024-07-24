@@ -8,7 +8,7 @@ class MiraxAIProduct {
       this.lang = lang;
       this.launchurl = "";
       this.iframe = null;
-      this.url = "http://localhost:3000";
+      this.url = "https://product.hashlays.com";
       this.customerDetails = customerDetails;
       if (TypeID == "1") {
         this.component = "jewellery";

@@ -12,7 +12,7 @@ class MiraxAIProduct {
       if (TypeID == "1") {
         this.component = "jewellery";
       } else if (TypeID == "2") {
-        this.component = "cosmetics";
+        this.component = "cosmatics";
       } else if (TypeID == "3") {
         this.component = "hands";
       } else if (TypeID == "4") {
