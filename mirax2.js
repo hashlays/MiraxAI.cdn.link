@@ -77,9 +77,17 @@ class MiraxAIProduct {
         loadingDiv.style.flexDirection="column";
         loadingDiv.style.alignItems = "center";
         loadingDiv.style.justifyContent = "center";
-        loadingDiv.style.backgroundColor = "rgba(0, 0, 0, 0.16)";
-        loadingDiv.style.backdropFilter = "blur(10px)";
+        loadingDiv.style.backgroundColor = "rgba(0, 0, 0, 0.15)";
+        loadingDiv.style.backdropFilter = "blur(5px)";
         loadingDiv.style.zIndex = "1000";
+        // Add vendor prefixes for compatibility
+        loadingDiv.style.webkitBackdropFilter = "blur(5px)"; // Safari
+        loadingDiv.style.backdropFilter = "blur(5px)";
+
+        // Fallback for browsers that do not support backdrop-filter
+        if (!('backdropFilter' in document.body.style) && !('webkitBackdropFilter' in document.body.style)) {
+            loadingDiv.style.backgroundColor = "rgba(0, 0, 0, 0.15)"; // Increase opacity for better visibility without blur
+        }
 
         const bounceDiv = document.createElement("div");
         bounceDiv.className = "bounce";
